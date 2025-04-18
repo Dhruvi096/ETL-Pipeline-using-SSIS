@@ -1,0 +1,7 @@
+E:\Dhruvi\ETL Project\Sales Data Cube\bin\Model.asdatabase
+E:\Dhruvi\ETL Project\Sales Data Cube\bin\Model.deploymenttargets
+E:\Dhruvi\ETL Project\Sales Data Cube\bin\Model.deploymentoptions
+E:\Dhruvi\ETL Project\Sales Data Cube\obj\Development\Sales Data Cube.smproj.CoreCompileInputs.cache
+E:\Dhruvi\ETL Project\Sales Data Cube\obj\Development\Model.asdatabase
+E:\Dhruvi\ETL Project\Sales Data Cube\obj\Development\Model.deploymentoptions
+E:\Dhruvi\ETL Project\Sales Data Cube\obj\Development\Model.deploymenttargets
