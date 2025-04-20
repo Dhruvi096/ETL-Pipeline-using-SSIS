@@ -433,6 +433,12 @@
             ]
           }
         ],
+        "measures": [
+          {
+            "name": "Total Customers",
+            "expression": "COUNT(v_Dim_Customer[Customer ID])"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -565,6 +571,12 @@
             }
           }
         ],
+        "measures": [
+          {
+            "name": "Total Products",
+            "expression": "COUNT(v_Dim_Product[Product Name])"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -684,6 +696,10 @@
           {
             "name": "Total Profit",
             "expression": "SUM(v_Fact_Sales[Profit])"
+          },
+          {
+            "name": "Average Sales",
+            "expression": "AVERAGE(v_Fact_Sales[Sales])"
           }
         ],
         "annotations": [
@@ -698,6 +714,44 @@
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "stg"
+          }
+        ]
+      },
+      {
+        "name": "RankTable",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "Sort",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Sort]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "Type",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Type]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "No",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[No]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": " DATATABLE(\"Sort\",INTEGER,\"Type\",STRING,\"No\",INTEGER ,{{0,\"Default\",0},{1,\"Top 5\",5},{2,\"Top 10\",10},{3,\"Top 20\",20},{4,\"Top 50\",50},{5,\"Top 100\",100}})"
+            }
           }
         ]
       },
@@ -722,6 +776,12 @@
             "dataType": "string",
             "sourceColumn": "Month",
             "sourceProviderType": "Char"
+          },
+          {
+            "name": "WeekDay",
+            "dataType": "int64",
+            "sourceColumn": "WeekDay",
+            "sourceProviderType": "Integer"
           },
           {
             "name": "Day",
@@ -786,7 +846,7 @@
         "toColumn": "LocationID"
       },
       {
-        "name": "e446b332-219b-43f3-a680-a9dd307b7a81",
+        "name": "024fe1a6-db03-4c41-b139-2d2ac8d3b1c5",
         "fromTable": "v_Fact_Sales",
         "fromColumn": "OrderDate",
         "toTable": "v_Dim_Date",
