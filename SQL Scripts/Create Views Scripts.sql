@@ -118,6 +118,7 @@ SELECT DISTINCT
 		 when MONTH([Order Date]) = '12' then 'December'
     end AS Month,
     DAY([Order Date]) AS Day,
+	DATEPART(dw, [Order Date]) AS [WeekDay],
     DATEPART(QUARTER, [Order Date]) AS Quarter
 FROM [stg].[Sales_Data];
 
